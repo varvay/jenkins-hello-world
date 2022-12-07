@@ -5,9 +5,9 @@ pipeline {
       }
     }
     stages {
-        stage('Hello World') {
+        stage('Build') {
             steps {
-                echo 'Hello World v0.1'
+                echo 'npm i'
             }
         }
     }

@@ -8,14 +8,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'npm cache clean --force'
               sh 'node -v'
               sh 'npm install'
             }
         }
         stage('Test') {
           steps {
-            sh 'npm cache clean --force'
             sh 'npm test'
           }
         }

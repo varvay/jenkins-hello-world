@@ -6,9 +6,8 @@ pipeline {
       }
     }
     stages {
-        stage('Build') {
+        stage('Pre-configuration') {
             steps {
-              sh 'node -v'
               sh 'npm install'
             }
         }

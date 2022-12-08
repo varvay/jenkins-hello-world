@@ -2,7 +2,7 @@ pipeline {
     agent {
       docker {
         image 'node:lts-buster-slim'
-        args '-u root:root'
+        args '-u jenkins:jenkins'
       }
     }
     stages {

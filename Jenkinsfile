@@ -25,9 +25,11 @@ pipeline {
         }
         stage('Build') {
           steps {
+            sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
+          }
+          steps {
             script {
               docker.withRegistry("https://562234494789.dkr.ecr.us-east-1.amazonaws.com", "ecr:us-east-1:72a40934-a1e1-4eca-9210-f07a86a7afb3") {
-                sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
                 image = docker.build("ecs-demo")
                 image.push()
               }

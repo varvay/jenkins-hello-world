@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Unit Test') {
           agent {
@@ -13,7 +13,6 @@ pipeline {
           }
         }
         stage('Build') {
-          agent any
           steps {
             script {
               sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'

@@ -1,17 +1,24 @@
 pipeline {
-    agent {
-      docker {
-        image 'node:lts-buster-slim'
-        args '-u root:root'
-      }
-    }
+    agent none
     stages {
         stage('Pre-configuration') {
-            steps {
-              sh 'npm install'
+          agent {
+            docker {
+              image 'node:lts-buster-slim'
+              args '-u root:root'
             }
+          }
+          steps {
+            sh 'npm install'
+          }
         }
         stage('Unit Test') {
+          agent {
+            docker {
+              image 'node:lts-buster-slim'
+              args '-u root:root'
+            }
+          }
           steps {
             sh 'npm test'
           }

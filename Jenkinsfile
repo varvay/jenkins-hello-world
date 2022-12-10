@@ -26,7 +26,7 @@ pipeline {
         stage('Build') {
           steps {
             script {
-              docker.withRegistry("562234494789.dkr.ecr.us-east-1.amazonaws.com/demo-ecs") {
+              docker.withRegistry("https://562234494789.dkr.ecr.us-east-1.amazonaws.com/demo-ecs") {
                 image = docker.build("ecs-demo")
                 image.push()
               }

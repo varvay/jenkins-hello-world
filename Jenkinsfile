@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Unit Test') {
           agent {
@@ -13,6 +13,7 @@ pipeline {
           }
         }
         stage('Build') {
+          agent any
           steps {
             script {
               sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'
@@ -24,6 +25,7 @@ pipeline {
           }
         }
         stage('Deploy') {
+          agent any
           steps {
             script {
               sh 'aws --version'

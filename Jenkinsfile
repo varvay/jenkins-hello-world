@@ -11,9 +11,15 @@ pipeline {
               sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
           steps {
             sh 'npm test'
+          }
+        }
+        stage('Build') {
+          steps {
+            sh 'npm run build'
+            sh 'docker build -t demo-ecs .'
           }
         }
     }

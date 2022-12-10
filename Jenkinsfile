@@ -24,6 +24,7 @@ pipeline {
           }
         }
         stage('Build') {
+          agent any
           steps {
             script {
               sh 'rm -f ~/.dockercfg ~/.docker/config.json || true'

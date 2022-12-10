@@ -17,8 +17,10 @@ pipeline {
           }
         }
         stage('Build') {
-          node {
-            checkout scm
+          steps {
+            script {
+              image = docker.build("ecs-demo")
+            }
           }
         }
     }

@@ -26,7 +26,9 @@ pipeline {
         }
         stage('Deploy') {
           steps {
-            withAWS(region: 'us-east-1') {}
+            script {
+              sh 'aws --version'
+            }
           }
         }
     }

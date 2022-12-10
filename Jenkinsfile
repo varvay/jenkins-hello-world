@@ -17,9 +17,8 @@ pipeline {
           }
         }
         stage('Build') {
-          steps {
-            sh 'npm run build'
-            sh 'docker build -t demo-ecs .'
+          node {
+            checkout scm
           }
         }
     }

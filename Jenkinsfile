@@ -28,7 +28,7 @@ pipeline {
           agent any
           steps {
             script {
-              withAWS("72a40934-a1e1-4eca-9210-f07a86a7afb3"){
+              withAWS(credentials: "72a40934-a1e1-4eca-9210-f07a86a7afb3"){
                 sh 'aws ecs update-service --cluster demo-ecs --service demo-ecs --force-new-deployment'
               }
             }

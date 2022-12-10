@@ -28,7 +28,9 @@ pipeline {
           agent any
           steps {
             script {
-              sh 'aws ecs update-service --cluster demo-ecs --service demo-ecs --force-new-deployment'
+              withAWS(){
+                sh 'aws ecs update-service --cluster demo-ecs --service demo-ecs --force-new-deployment'
+              }
             }
           }
         }

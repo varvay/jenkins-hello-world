@@ -1,17 +1,6 @@
 pipeline {
     agent none
     stages {
-        // stage('Pre-configuration') {
-        //   agent {
-        //     docker {
-        //       image 'node:lts-buster-slim'
-        //       args '-u root:root'
-        //     }
-        //   }
-        //   steps {
-        //     sh 'npm install'
-        //   }
-        // }
         stage('Unit Test') {
           agent {
             docker {
@@ -33,6 +22,11 @@ pipeline {
                 image.push()
               }
             }
+          }
+        }
+        stage('Deploy') {
+          steps {
+            withAWS(region: 'us-east-1') {}
           }
         }
     }

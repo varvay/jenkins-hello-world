@@ -28,7 +28,7 @@ pipeline {
           agent any
           steps {
             script {
-              sh 'aws --version'
+              sh 'aws ecs update-service --cluster demo-ecs --service demo-ecs --force-new-deployment'
             }
           }
         }
